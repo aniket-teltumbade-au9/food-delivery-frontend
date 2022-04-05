@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Typography } from '@mui/material'
 import RestauItem from './restau-item'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 const data = {
     Pizza: [
@@ -32,10 +33,23 @@ class Restaurants extends Component {
         return (
             <>
                 <Typography variant="h3" align="center">Nearby Restaurants</Typography>
-                <Grid container justifyContent="center" columnGap={2} rowGap={2} marginY="16px">
-                    {
-                        this.props.currentCat.map(el1 => data[el1].map(el => <RestauItem {...el} />))
-                    }
+                <Grid container justifyContent="center" alignItems="center" columnGap={2} rowGap={2} marginY="16px">
+                    <TransitionGroup component={null}>
+                        {
+                            this.props.currentCat.map(el1 => data[el1].map(el => <CSSTransition timeout={5500} classNames={{
+                                appear: 'my-appear',
+                                appearActive: 'my-active-appear',
+                                appearDone: 'my-done-appear',
+                                enter: 'my-enter',
+                                enterActive: 'my-active-enter',
+                                enterDone: 'my-done-enter',
+                                exit: 'my-exit',
+                                exitActive: 'my-active-exit',
+                                exitDone: 'my-done-exit',
+                            }}
+                                unmountOnExit><RestauItem {...el} /></CSSTransition>))
+                        }
+                    </TransitionGroup>
                 </Grid>
             </>
         )

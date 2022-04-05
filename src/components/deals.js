@@ -8,15 +8,17 @@ const data = [
         title: "All Deserts",
         image: Ibg,
         offer: "20% off",
-        category: "Deserty",
-        background: "#F3F4FF"
+        category_slug: "Deserty",
+        background: "#F3F4FF",
+        category: "Desert"
     },
     {
         title: "Big Burger",
         image: Bbg,
         offer: "50% off",
-        category: "Foodies",
-        background: "#FFF3ED"
+        category_slug: "Foodies",
+        background: "#FFF3ED",
+        category: "Burger"
     }
 ]
 export class Deals extends React.Component {

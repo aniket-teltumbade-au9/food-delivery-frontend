@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class RestauItem extends Component {
     render() {
         return (
-            <Card sx={{ maxWidth: "100%" }}>
+            <Card sx={{ maxWidth: "100vw" }}>
                 <CardMedia
                     component="img"
                     height="194"

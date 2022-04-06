@@ -8,23 +8,24 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { UserContext } from './auth';
 
 const pages = [{ title: 'Home', link: "/" }];
 const settings = [];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+    const auth = React.useContext(UserContext)
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
     const handleOpenUserMenu = (event) => {
         // setAnchorElUser(event.currentTarget);
+        auth.setUser(false);
     };
 
     const handleCloseNavMenu = () => {
@@ -34,7 +35,6 @@ const ResponsiveAppBar = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
-
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
@@ -108,9 +108,9 @@ const ResponsiveAppBar = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Logout">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt="Remy Sharp" src={`https://ui-avatars.com/api/?name=${props.user.email}`} />
                             </IconButton>
                         </Tooltip>
                         <Menu

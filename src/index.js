@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserContext } from './components/auth';
 
 ReactDOM.render(
   <React.StrictMode>

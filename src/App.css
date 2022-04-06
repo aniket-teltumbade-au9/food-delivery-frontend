@@ -84,3 +84,7 @@
   opacity: 0;
   transition: opacity 200ms linear;
 }
+
+.error {
+  color: red;
+}

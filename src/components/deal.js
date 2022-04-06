@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Box, Typography, Button } from '@mui/material'
+import { Grid, Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
 
 class DealItem extends Component {
